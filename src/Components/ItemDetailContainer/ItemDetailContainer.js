@@ -2,12 +2,10 @@ import { useParams } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useState, useEffect } from "react";
 import panesAPI from '../../APIrest/panesAPI';
-import { getProductById } from "../../APIrest/panesAPI";
 
 function ItemDetailContainer(){
     const {panID} = useParams();
     const [producto, setProducto] = useState([]);
-    const [id, setId] = useState({});
 
     const getData = () => {
       setTimeout(() => {
@@ -18,16 +16,14 @@ function ItemDetailContainer(){
   
      useEffect(() => {
       getData();
-      setId(getProductById(panID));
      },[])
 
 
     return (
       <div className="ItemDetailContainer">
-      {panID}
-        {panID}
         {producto
-        .filter(pan => pan.id.includes(id))
+        // ESTO DA ERROR!
+        .filter(pan => pan.id.includes(panID))
         .map((producto) => (
           <ItemDetail 
             nombre={producto.nombre}
