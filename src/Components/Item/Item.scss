@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto+Flex:opsz,wght@8..144,300;8..144,400;8..144,700&display=swap');
+ 
+ .card-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .card {
+        margin-bottom: 5rem;
+        display: flex;
+        margin-left: 8rem;
+
+        a{
+            text-decoration: none;
+            color: #333;
+        }
+
+        .panes {
+            width: 286px;
+            height: 287px;
+        }
+
+        .card-title {
+            font-family: 'Lobster', cursive;
+        }
+
+        .card-text {
+            color: rgba(51, 51, 51, 0.805);
+        }
+
+        .btn {
+            width: 50%;
+            padding: 8px 16px;
+            margin-top: 32px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            display: block;
+            color: #fff !important;
+            background-color: #000;
+            font-family: 'Lobster', cursive;
+            font-size: 1.2rem;
+
+            &:hover {
+                background-color: rgba(51, 51, 51, 0.815);
+                border: none;
+                transform: scale(1.1);
+                transition: 0.3s;
+            }
+        }
+    }
+ }   
+    
