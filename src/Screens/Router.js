@@ -8,9 +8,9 @@ function Router() {
     <BrowserRouter>
         <NavBar/>
         <Routes>
-            <Route path='/' element={<ItemListContainer/>}></Route>
-            <Route path='/categoria/:cat' element={<ItemListContainer/>}></Route>
-            <Route path='/:cat/:panID' element={<ItemDetailContainer/>}></Route>
+            <Route path='/' element={<ItemListContainer/>}/>
+            <Route path='/categoria/:cat' element={<ItemListContainer/>}/>
+            <Route path='/:cat/:panID' element={<ItemDetailContainer/>}/>
         </Routes>
     </BrowserRouter>
   )

@@ -8,29 +8,33 @@ function ItemDetailContainer(){
     const [producto, setProducto] = useState([]);
 
     const getData = () => {
-      setTimeout(() => {
-        const items = panesAPI;
-        setProducto(items);
-      }, 1000);
-    };
-  
-     useEffect(() => {
-      getData();
-     },[])
+      let items = panesAPI;
+      return new Promise((resolve, reject)=>{
+          setTimeout(()=>{
+              resolve((items))
+          }, 1000);
+      })
+    }
 
+    useEffect(()=>{
+      async function fetchedItems(){
+          const items = await getData();
+          const panes = items.filter((pan) => pan.id === Number(panID));
+          setProducto(panes);
+      }
+      fetchedItems();
+    }, []);
 
     return (
       <div className="ItemDetailContainer">
         {producto
-        // ESTO DA ERROR!
-        .filter(pan => pan.id.includes(panID))
-        .map((producto) => (
+        .map((panes) => (
           <ItemDetail 
-            nombre={producto.nombre}
-            img={producto.img}
-            precio={producto.precio}
-            id={producto.id}
-            categoria={producto.categoria}
+            key={panes.id}
+            nombre={panes.nombre}
+            img={panes.img}
+            precio={panes.precio}
+            categoria={panes.categoria}
         />   
         ))}
       </div>
