@@ -2,16 +2,19 @@ import { useParams } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useState, useEffect } from "react";
 import panesAPI from '../../APIrest/panesAPI';
+import Loader from "../Loader";
 
 function ItemDetailContainer(){
     const {panID} = useParams();
-    const [producto, setProducto] = useState([]);
+    const [producto, setProducto] = useState(<Loader/>);
+    const [loading, isLoading] = useState(true)
 
     const getData = () => {
       let items = panesAPI;
       return new Promise((resolve, reject)=>{
           setTimeout(()=>{
               resolve((items))
+              isLoading(false)
           }, 1000);
       })
     }
@@ -27,7 +30,8 @@ function ItemDetailContainer(){
 
     return (
       <div className="ItemDetailContainer">
-        {producto
+        {loading ? producto : 
+        producto
         .map((panes) => (
           <ItemDetail 
             key={panes.id}

@@ -3,10 +3,12 @@ import Item from '../Item/Item';
 import { useParams } from "react-router-dom";
 import panesAPI from '../../APIrest/panesAPI';
 import './ItemList.scss';   
+import Loader from '../Loader';
 
 const ItemList = () => {
     // const [ filter, setFilter ] = useState('');
-    const [producto, setProducto] = useState([]);
+    const [producto, setProducto] = useState(<Loader/>);
+    const [loading, isLoading] = useState(false);
     const { cat } = useParams();
 
     const getData = () => {
@@ -14,30 +16,19 @@ const ItemList = () => {
         return new Promise((resolve, reject)=>{
             setTimeout(()=>{
                 resolve((items))
-            }, 1000);
+                isLoading(true)
+            }, 2000);
         })
       }
   
       useEffect(()=>{
         async function fetchedItems(){
             const items = await getData();
-            // const panes = items.filter((pan) => pan.categoria === cat);
             setProducto(items);
         }
         fetchedItems();
       }, [cat]);
 
-    // const getData = () => {
-    //     setTimeout(() => {
-    //       const productos = PanesAPI;
-    //       setProductos(productos);
-    //     }, 2000);
-    //   };
-    
-    //    useEffect(() => {
-    //     getData();
-    //    },[])
-    
   return (
     <div>
         {/* <input 
@@ -48,13 +39,14 @@ const ItemList = () => {
             onChange={(event) => setFilter(event.target.value)}  
          /> */}
         <div className='card-container'>
-            {cat ? producto
+            {!loading ? producto
+            : cat ? producto
                 // .filter(f => f.nombre.includes(filter))
                 .filter((panes) => panes.categoria === cat)
                 .map((panes, i) => (
                     <Item 
                         key={i}
-                        id={i}
+                        id={panes.id}
                         nombre = {panes.nombre}
                         img = {panes.img}
                         precio = {panes.precio}

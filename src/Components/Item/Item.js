@@ -14,7 +14,7 @@ const Item = (props) => {
             bulk of the card's content.
           </Card.Text> */}
           <Card.Text>${props.precio}</Card.Text>
-          <NavLink to={`${props.categoria}/${props.id}`}><Button variant="primary">Ver detalle</Button></NavLink>
+          <NavLink to={`/${props.categoria}/${props.id}`}><Button variant="primary">Ver detalle</Button></NavLink>
         </Card.Body>
       </Card>
     );

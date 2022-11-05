@@ -5,20 +5,30 @@ import RemoveIcon from '@mui/icons-material/Remove';
 
 function ItemCount({ stock, initial }) {
   const [ value, setValue ] = useState(initial);  
-  console.log(value)
+  const [ cantidad, setCantidad ] = useState(stock)
 
   function onAdd(){
-      (stock) > value ? setValue(value + 1) : setValue(value + 0);
+      if(stock > value){
+        setValue(value + 1)
+        setCantidad(cantidad - 1)
+      }else{
+        setValue(value + 0)
+      }
   }
 
   function onSubstract(){
-      value !== 0 ? setValue(value - 1) : setValue(value + 0);
+      if(value !== 0){
+        setValue(value - 1)
+        setCantidad(cantidad + 1)
+      }else{
+        setValue(value + 0)
+      }
   }
 
   return (
     <div>
         <div className='itemCount'>
-          <h3 className='item-title'>Stock actual: {stock}</h3>
+          <h3 className='item-title'>Stock actual: {cantidad}</h3>
           <div className='container-btn'>
             <button className='btn-count' onClick={onSubstract}><RemoveIcon fontSize='small'/></button>
             <h4 className='value-count'>{value}</h4>
