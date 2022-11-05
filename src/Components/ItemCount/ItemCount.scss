@@ -1,0 +1,23 @@
+.itemCount{
+    display: flex;
+    flex-direction: column;
+    .item-title{
+        font-size: 17px;
+    }
+    .container-btn{
+        width: 100%;
+        display: flex;
+        .btn-count{
+            height: 4vh;
+            width: 15%;
+            border: none;
+            padding: 10px;
+            background-color: white;
+        }
+        .value-count{
+            margin: 0 2rem;
+            padding-top: .5rem;
+            font-size: 1.5rem;
+        }
+    }
+}

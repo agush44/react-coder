@@ -1,9 +1,11 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import './ItemDetail.scss';
+import ItemCount from '../ItemCount/ItemCount'
 
 const ItemDetail = (props) => {
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '25rem' }} className="pan-card">
         <Card.Img variant="top" src={props.img} className='panes'/>
         <Card.Body>
           <Card.Title>{props.nombre}</Card.Title>
@@ -12,7 +14,8 @@ const ItemDetail = (props) => {
             bulk of the card's content.
           </Card.Text>
           <Card.Text>${props.precio}</Card.Text>
-          <Button variant="primary">Ver detalle</Button>
+          <ItemCount stock={props.stock} initial={0}/>
+          <Button variant="primary">Agregar al carrito</Button>
         </Card.Body>
     </Card>
   )

@@ -23,7 +23,7 @@ function ItemDetailContainer(){
           setProducto(panes);
       }
       fetchedItems();
-    }, []);
+    }, [panID]);
 
     return (
       <div className="ItemDetailContainer">
@@ -35,6 +35,7 @@ function ItemDetailContainer(){
             img={panes.img}
             precio={panes.precio}
             categoria={panes.categoria}
+            stock={panes.stock}
         />   
         ))}
       </div>

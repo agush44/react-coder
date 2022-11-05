@@ -2,13 +2,12 @@ import { useState, useEffect } from 'react';
 import Item from '../Item/Item';
 import { useParams } from "react-router-dom";
 import panesAPI from '../../APIrest/panesAPI';
-import './ItemList.scss';
+import './ItemList.scss';   
 
 const ItemList = () => {
     // const [ filter, setFilter ] = useState('');
     const [producto, setProducto] = useState([]);
     const { cat } = useParams();
-    console.log(cat)
 
     const getData = () => {
         let items = panesAPI;
@@ -22,11 +21,11 @@ const ItemList = () => {
       useEffect(()=>{
         async function fetchedItems(){
             const items = await getData();
-            const panes = items.filter((pan) => pan.categoria === cat);
-            setProducto(panes);
+            // const panes = items.filter((pan) => pan.categoria === cat);
+            setProducto(items);
         }
         fetchedItems();
-      }, []);
+      }, [cat]);
 
     // const getData = () => {
     //     setTimeout(() => {
@@ -51,7 +50,7 @@ const ItemList = () => {
         <div className='card-container'>
             {cat ? producto
                 // .filter(f => f.nombre.includes(filter))
-                // .filter(panes => panes.categoria === cat)
+                .filter((panes) => panes.categoria === cat)
                 .map((panes, i) => (
                     <Item 
                         key={i}
@@ -74,7 +73,6 @@ const ItemList = () => {
                         categoria = {panes.categoria}
                     />    
                 ))}
-                {console.log(producto)}
         </div>
     </div>
   )

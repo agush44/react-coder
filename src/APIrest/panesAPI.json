@@ -6,7 +6,7 @@
         "stock": 20,
         "img": "../img/pan-de-campo2.jpeg",
         "cantidad": 0,
-        "categorìa": "Pan de campo"
+        "categoria": "pandecampo"
     },
     {
         "id": 2,
@@ -15,7 +15,7 @@
         "stock": 20,
         "img": "../img/pan-de-campo2.jpeg",
         "cantidad": 0,
-        "categorìa": "Pan de campo"
+        "categoria": "pandecampo"
     },
     {
         "id": 3,
@@ -24,7 +24,7 @@
         "stock": 25,
         "img": "../img/pan-lactal.jpeg",
         "cantidad": 0,
-        "categorìa": "Pan lactal"
+        "categoria": "panlactal"
     },
     {
         "id": 4,
@@ -33,7 +33,7 @@
         "stock": 20,
         "img": "../img/focaccia.jpeg",
         "cantidad": 0,
-        "categorìa": "focaccia"
+        "categoria": "focaccia"
     },
     {
         "id": 5,
@@ -42,7 +42,7 @@
         "stock": 20,
         "img": "../img/focaccia.jpeg",
         "cantidad": 0,
-        "categorìa": "focaccia"
+        "categoria": "focaccia"
     },
     {
         "id": 6,
@@ -51,6 +51,6 @@
         "stock": 30,
         "img": "../img/focaccia.jpeg",
         "cantidad": 0,
-        "categorìa": "focaccia"
+        "categoria": "focaccia"
     }
 ]
