@@ -3,7 +3,7 @@
         "id": 1,
         "nombre": "Pan de campo",
         "precio": 650,
-        "stock": 20,
+        "stock": 5,
         "img": "../img/pan-de-campo2.jpeg",
         "cantidad": 0,
         "categoria": "pandecampo"
@@ -12,7 +12,7 @@
         "id": 2,
         "nombre": "Pan de campo con nuez",
         "precio": 700,
-        "stock": 20,
+        "stock": 10,
         "img": "../img/pan-de-campo2.jpeg",
         "cantidad": 0,
         "categoria": "pandecampo"
@@ -21,7 +21,7 @@
         "id": 3,
         "nombre": "Pan lactal",
         "precio": 700,
-        "stock": 25,
+        "stock": 10,
         "img": "../img/pan-lactal.jpeg",
         "cantidad": 0,
         "categoria": "panlactal"
@@ -30,7 +30,7 @@
         "id": 4,
         "nombre": "Focaccia con cebolla morada y cherry",
         "precio": 750,
-        "stock": 20,
+        "stock": 10,
         "img": "../img/focaccia.jpeg",
         "cantidad": 0,
         "categoria": "focaccia"
@@ -39,7 +39,7 @@
         "id": 5,
         "nombre": "Focaccia con queso gouda y cebolla morada",
         "precio": 750,
-        "stock": 20,
+        "stock": 5,
         "img": "../img/focaccia.jpeg",
         "cantidad": 0,
         "categoria": "focaccia"
@@ -48,7 +48,7 @@
         "id": 6,
         "nombre": "Pan de campo y focaccia para picada",
         "precio": 750,
-        "stock": 30,
+        "stock": 5,
         "img": "../img/focaccia.jpeg",
         "cantidad": 0,
         "categoria": "focaccia"

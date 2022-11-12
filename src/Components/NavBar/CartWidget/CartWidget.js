@@ -1,12 +1,15 @@
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import './CartWidget.scss'
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import "./CartWidget.scss";
+import { NavLink } from "react-router-dom";
 
 function CartWidget() {
-    return (
-        <div>
-            <ShoppingCartIcon className='cart'/>
-        </div>
-    )
+  return (
+    <div>
+      <NavLink to={`/cart`}>
+        <ShoppingCartIcon className="cart" />{" "}
+      </NavLink>
+    </div>
+  );
 }
 
-export default CartWidget
+export default CartWidget;
