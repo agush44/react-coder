@@ -6,7 +6,7 @@ import Loader from "../Loader";
 
 function ItemDetailContainer(){
     const {panID} = useParams();
-    const [producto, setProducto] = useState(<Loader/>);
+    const [producto, setProducto] = useState([]);
     const [loading, isLoading] = useState(true)
 
     const getData = () => {
@@ -22,7 +22,7 @@ function ItemDetailContainer(){
     useEffect(()=>{
       async function fetchedItems(){
           const items = await getData();
-          const panes = items.filter((pan) => pan.id === Number(panID));
+          const panes = items.find((pan) => pan.id === parseInt(panID));
           setProducto(panes);
       }
       fetchedItems();
@@ -30,18 +30,10 @@ function ItemDetailContainer(){
 
     return (
       <div className="ItemDetailContainer">
-        {loading ? producto : 
-        producto
-        .map((panes) => (
-          <ItemDetail 
-            key={panes.id}
-            nombre={panes.nombre}
-            img={panes.img}
-            precio={panes.precio}
-            categoria={panes.categoria}
-            stock={panes.stock}
+        {loading ? <Loader/> : <ItemDetail 
+            {...producto}
         />   
-        ))}
+        }
       </div>
     );
   };

@@ -5,15 +5,15 @@ import panesAPI from '../../APIrest/panesAPI';
 import './ItemList.scss';   
 import Loader from '../Loader';
 import { CartContext } from '../../Context/CartContext';
-// import {
-//     doc, 
-//     getDoc,
-//     getFirestore,
-//     colection,
-//     getDocs,
-//     query, 
-//     where
-// } from "firebase/firestore";
+import {
+    doc, 
+    getDoc,
+    getFirestore,
+    colection,
+    getDocs,
+    query, 
+    where
+} from "firebase/firestore";
 
 const ItemList = () => {
     // const [ filter, setFilter ] = useState('');
@@ -32,6 +32,9 @@ const ItemList = () => {
       }
   
       useEffect(()=>{
+
+        const db = getFirestore()
+
         async function fetchedItems(){
             const items = await getData();
             setProducto(items);

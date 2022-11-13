@@ -1,6 +1,5 @@
 import { useContext, useState, useEffect } from "react"
 import CartContext from "../../Context/CartContext"
-import Card from 'react-bootstrap/Card';
 import ItemCount from "../ItemCount/ItemCount";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';

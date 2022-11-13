@@ -3,8 +3,9 @@ import { useState } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import toast, { Toaster } from 'react-hot-toast';
+import Button from 'react-bootstrap/Button';
 
-function ItemCount({ stock, initial }) {
+function ItemCount({ stock, initial, agregarProd }) {
   const [ value, setValue ] = useState(initial);  
 
   function onAdd(){
@@ -35,9 +36,10 @@ function ItemCount({ stock, initial }) {
             <button className='btn-count' onClick={onSubstract}><RemoveIcon fontSize='small'/></button>
             <h4 className='value-count'>{value}</h4>
             <button className='btn-count' onClick={onAdd}><AddIcon fontSize='small'/></button>
+            <Button onClick={() => agregarProd(value)} variant="primary">Agregar al carrito</Button>
           </div>
           <p className='item-title'>Unidades disponibles: {stock}</p>
-        </div> 
+        </div>
     </div>
   )
 }
