@@ -6,25 +6,32 @@ export const CartContext = createContext({
     addToCart: () => {}
 });
 
-export default function CartProvider({children}) {
+const CartProvider = ({children}) => {
     const [cart, setCart] = useState([])
-
-    const getFromCart = (id) => {
-        return cart.filter(ord => ord.id === id) 
-    }
+    // const getFromCart = (id) => {
+    //     return cart.filter(ord => ord.id === id) 
+    // }
 
     const isInCart = (id) => {
-        return id !== undefined ? getFromCart(id) : undefined;
+        // return id !== undefined ? getFromCart(id) : undefined;
+        return cart.some((el) => el.id === id)
     }
 
     const addToCart = (item, cantidad) =>{
-        if(isInCart(item && item.id)){
+        
+        if(isInCart(item.id)){
             console.log('Item con id ya existente');
-            return;
+            let prodInCart = cart.find(prod => prod.id === item.id);
+            console.log(prodInCart)
+            prodInCart.cantidad += cantidad;           
+            
+        }else{
+           // No existe elemento con ese id
+            setCart([...cart, item]);
+            console.log('Item agregado')  
+            console.log(cart)       
         }
-        // No existe elemento con ese id
-        setCart([...cart, item]);
-        console.log('Item agregado')
+        
     };
 
     const clear = () => {
@@ -35,3 +42,5 @@ export default function CartProvider({children}) {
         {children}
     </CartContext.Provider>
 }
+
+export {CartProvider};
