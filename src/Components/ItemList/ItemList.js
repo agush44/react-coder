@@ -4,43 +4,44 @@ import { useParams } from "react-router-dom";
 import panesAPI from '../../APIrest/panesAPI';
 import './ItemList.scss';   
 import Loader from '../Loader';
-import { CartContext } from '../../Context/CartContext';
-import {
-    doc, 
-    getDoc,
-    getFirestore,
-    colection,
-    getDocs,
-    query, 
-    where
-} from "firebase/firestore";
+// import { CartContext } from '../../Context/CartContext';
+import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
 
 const ItemList = () => {
     // const [ filter, setFilter ] = useState('');
     const [producto, setProducto] = useState(<Loader/>);
-    const [loading, isLoading] = useState(false);
+    const [loading, isLoading] = useState(true);
     const { cat } = useParams();
 
-    const getData = () => {
-        let items = panesAPI;
-        return new Promise((resolve, reject)=>{
-            setTimeout(()=>{
-                resolve((items))
-                isLoading(true)
-            }, 2000);
-        })
-      }
+    // const getData = () => {
+    //     let items = panesAPI;
+    //     return new Promise((resolve, reject)=>{
+    //         setTimeout(()=>{
+    //             resolve((items))
+    //             isLoading(true)
+    //         }, 2000);
+    //     })
+    //   }
   
-      useEffect(()=>{
+    //   useEffect(()=>{
 
+    //     async function fetchedItems(){
+    //         const items = await getData();
+    //         setProducto(items);
+    //     }
+    //     fetchedItems();
+    //   }, [cat]);
+
+    useEffect(()=>{
         const db = getFirestore()
+        const itemsCollection = cat ? query(collection(db, 'items'), where("categoria", "==", cat)) : collection(db, 'items'); 
 
-        async function fetchedItems(){
-            const items = await getData();
-            setProducto(items);
-        }
-        fetchedItems();
-      }, [cat]);
+        getDocs(itemsCollection).then((snapshot) => {
+            setProducto(snapshot.docs.map((doc)=> ({id:doc.id, ...doc.data()})));
+            isLoading(false);
+            console.log(producto)
+        })
+    }, [cat])
 
   return (
     <div>
@@ -52,8 +53,23 @@ const ItemList = () => {
             onChange={(event) => setFilter(event.target.value)}  
          /> */}
         <div className='card-container'>
-            <CartContext.Provider value = {false}>
-                {!loading ? producto
+                
+                {loading ? <Loader/>
+                            : producto
+                                // .filter(f => f.nombre.includes(filter))
+                                // .filter((panes) => panes.categoria === cat)
+                                .map((panes, i) => (
+                                    <Item 
+                                        key={i}
+                                        id={panes.id}
+                                        nombre = {panes.nombre}
+                                        img = {panes.img}
+                                        precio = {panes.precio}
+                                        categoria = {panes.categoria}
+                                    />
+                            ))
+                           }
+                           {/* {!loading ? producto
                             : cat ? producto
                                 // .filter(f => f.nombre.includes(filter))
                                 .filter((panes) => panes.categoria === cat)
@@ -78,8 +94,8 @@ const ItemList = () => {
                                         precio = {panes.precio}
                                         categoria = {panes.categoria}
                                     />    
-                                ))}
-            </CartContext.Provider>
+                                ))} */}
+
             
         </div>
     </div>
