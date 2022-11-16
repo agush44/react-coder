@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Item from '../Item/Item';
 import { useParams } from "react-router-dom";
-import panesAPI from '../../APIrest/panesAPI';
+// import panesAPI from '../../APIrest/panesAPI';
 import './ItemList.scss';   
 import Loader from '../Loader';
 // import { CartContext } from '../../Context/CartContext';
@@ -39,9 +39,9 @@ const ItemList = () => {
         getDocs(itemsCollection).then((snapshot) => {
             setProducto(snapshot.docs.map((doc)=> ({id:doc.id, ...doc.data()})));
             isLoading(false);
-            console.log(producto)
         })
     }, [cat])
+
 
   return (
     <div>

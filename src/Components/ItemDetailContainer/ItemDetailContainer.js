@@ -32,21 +32,31 @@ function ItemDetailContainer(){
 
     useEffect(()=>{
       const db = getFirestore()
-      const itemsCollection = query(collection(db, 'items'), where("id", "==", panID));
+      const itemsCollection = query(collection(db, 'items'), where("id", "==", parseInt(panID)));
       
       getDocs(itemsCollection).then((snapshot) => {
         setProducto(snapshot.docs.map((doc)=> ({id:doc.id, ...doc.data()})));
               isLoading(false);
-              console.log(producto)
       })
   }, [panID])
+
+  console.log(producto)
 
     return (
       <div className="ItemDetailContainer">
         {loading ? <Loader/> 
-        : <ItemDetail 
-            {...producto}
+        : producto.map((pan, i) =>(
+          <ItemDetail 
+            key={i}
+            id={pan.id}
+            nombre = {pan.nombre}
+            img = {pan.img}
+            precio = {pan.precio}
+            categoria = {pan.categoria}
+            stock = {pan.stock}
+            // {...producto}
         />   
+        )) 
         }
       </div>
     );
