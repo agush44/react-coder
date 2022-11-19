@@ -88,7 +88,7 @@ function InputOrder({ total, setShowCart }) {
                                 <p>Los mails ingresados no coinciden</p>
                             </div>
                             <div className='btn-container'>
-                                <button type='submit' className="btn btn-primary btn-block" >Enviar orden</button>
+                                <button type='submit' className="btn btn-primary btn-block">Enviar orden</button>
                             </div>
                         </form>
                     </div>

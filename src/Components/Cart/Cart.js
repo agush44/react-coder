@@ -6,9 +6,8 @@ import Button from 'react-bootstrap/Button';
 import '../Cart/Cart.scss'
 import DeleteIcon from '@mui/icons-material/Delete';
 import InputOrder from "../InputOrder/InputOrder";
-import { NavLink } from 'react-router-dom';
 import Swal from 'sweetalert2'
-// import 'animate.css';
+;
 
 function Cart() {
   const { cart, removeItem } = useContext(CartContext)

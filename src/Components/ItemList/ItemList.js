@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 // import panesAPI from '../../APIrest/panesAPI';
 import './ItemList.scss';   
 import Loader from '../Loader';
-// import { CartContext } from '../../Context/CartContext';
 import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
 
 const ItemList = () => {

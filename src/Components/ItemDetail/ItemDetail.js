@@ -6,6 +6,7 @@ import { CartContext } from '../../Context/CartContext';
 
 const ItemDetail = ({ nombre, img, stock, precio, id }) => {
   const { addToCart, stockDeProducto } = useContext(CartContext);
+  const nuevoStock= stockDeProducto(id);
 
   const agregarProd = (cantidad) => {
     const prodAAgregar = {
@@ -21,9 +22,6 @@ const ItemDetail = ({ nombre, img, stock, precio, id }) => {
       console.log(prodAAgregar)
     }
   }
-
-  const nuevoStock= stockDeProducto(id)
-  console.log(nuevoStock)
 
   return (
        <Card style={{ width: '25rem' }} className="pan-card">
