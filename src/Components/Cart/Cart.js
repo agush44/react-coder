@@ -9,9 +9,10 @@ import InputOrder from "../InputOrder/InputOrder";
 import Swal from 'sweetalert2';
 
 function Cart() {
-  const { cart, removeItem, order } = useContext(CartContext)
+  const { cart, removeItem } = useContext(CartContext)
   const [total, setTotal] = useState(0);
   const [showCart, setShowCart] = useState(true);
+  const [order, isOrder] = useState(false);
 
   useEffect(()=>{
     const total = cart.reduce((total, item) => total + (item.precio * item.cantidad), 0);
@@ -55,6 +56,7 @@ function Cart() {
               <Container fluid="md">
                   <div className="total">Total: ${total}</div>
                   <Button className="btn-cart" onClick={()=>{
+                    isOrder(true)
                     setShowCart(false);
               }}>Enviar orden</Button>
               </Container>
