@@ -9,10 +9,10 @@ const Item = (props) => {
         <Card.Img variant="top" src={props.img} className='panes'/>
         <Card.Body>
             <Card.Title>{props.nombre}</Card.Title>
-          {/* <Card.Text>
+          <Card.Text>
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
-          </Card.Text> */}
+          </Card.Text>
           <Card.Text>${props.precio}</Card.Text>
           <NavLink to={`/${props.categoria}/${props.id}`}><Button variant="primary">Ver detalle</Button></NavLink>
         </Card.Body>
