@@ -39,6 +39,7 @@ const CartProvider = ({children}) => {
             console.log('Item agregado')  
         }
         isOrder(true)
+        console.log(order)
     };
 
     const clear = () => {
