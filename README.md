@@ -1,6 +1,6 @@
 ### Proyecto final curso React || Coderhouse 
 
-E-commerce realizado con React.js
+E-commerce realizado con React.js, a cargo de Ma. Agustina Benitez Vanni.
 
 ### Funcionalidades
 

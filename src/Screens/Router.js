@@ -8,8 +8,8 @@ import { CartProvider } from  '../Context/CartContext';
 function Router() {
   return (
     <BrowserRouter>
-        <NavBar/>
         <CartProvider>
+          <NavBar/>
           <Routes>
               <Route path='/' element={<ItemListContainer/>}/>
               <Route path='/categoria/:cat' element={<ItemListContainer/>}/>

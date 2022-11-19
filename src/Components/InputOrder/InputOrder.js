@@ -73,7 +73,7 @@ function InputOrder({ total, setShowCart }) {
                                 <input onChange={(e) => setName(e.target.value)} type="text" className="form-control form-control-sm" id="exampleInputName" aria-describedby="emailHelp" required/>
                             </div>
                             <div className="form-group">
-                                <label className='label'v>Teléfono</label>
+                                <label className='label'>Teléfono</label>
                                 <input onChange={(e) => setPhone(e.target.value)} type="text" className="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" required/>
                             </div>
                             <div className="form-group">
