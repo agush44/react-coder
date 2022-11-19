@@ -68,35 +68,7 @@ const ItemList = () => {
                                         categoria = {panes.categoria}
                                     />
                             ))
-                           }
-                           {/* {!loading ? producto
-                            : cat ? producto
-                                // .filter(f => f.nombre.includes(filter))
-                                .filter((panes) => panes.categoria === cat)
-                                .map((panes, i) => (
-                                    <Item 
-                                        key={i}
-                                        id={panes.id}
-                                        nombre = {panes.nombre}
-                                        img = {panes.img}
-                                        precio = {panes.precio}
-                                        categoria = {panes.categoria}
-                                    />
-                            ))
-                            : producto
-                                // .filter(f => f.nombre.includes(filter))
-                                .map((panes, i) => (
-                                    <Item 
-                                        key={i}
-                                        id={panes.id}
-                                        nombre = {panes.nombre}
-                                        img = {panes.img}
-                                        precio = {panes.precio}
-                                        categoria = {panes.categoria}
-                                    />    
-                                ))} */}
-
-            
+                }
         </div>
     </div>
   )

@@ -23,10 +23,16 @@ const CartProvider = ({children}) => {
         if(isInCart(item.id)){
             console.log('Item con id ya existente');
             let prodInCart = cart.find(prod => prod.id === item.id);
+            if(prodInCart.stock > 0){
+                prodInCart.cantidad += cantidad;       
+                prodInCart.stock -= cantidad;
+            }else{
+                console.log("no hay stock")
+            }
             console.log(prodInCart)
-            prodInCart.cantidad += cantidad;           
-            
         }else{
+            item.stock -= cantidad;
+            console.log(cart)
             setCart([...cart, item]);
             console.log('Item agregado')  
         }

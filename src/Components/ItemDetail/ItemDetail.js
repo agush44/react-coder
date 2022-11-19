@@ -3,7 +3,6 @@ import './ItemDetail.scss';
 import ItemCount from '../ItemCount/ItemCount'
 import { useContext, useState } from 'react';
 import { CartContext } from '../../Context/CartContext';
-import Cart from '../Cart/Cart';
 
 const ItemDetail = ({ nombre, img, stock, precio, id }) => {
   const { addToCart } = useContext(CartContext);
@@ -12,6 +11,7 @@ const ItemDetail = ({ nombre, img, stock, precio, id }) => {
   const agregarProd = (cantidad) => {
     const prodAAgregar = {
       id, 
+      img,
       nombre, 
       stock,
       precio,
@@ -20,7 +20,6 @@ const ItemDetail = ({ nombre, img, stock, precio, id }) => {
     if(cantidad > 0){
       addToCart(prodAAgregar, cantidad)
       console.log(prodAAgregar)
-      console.log(cantidad) 
     }
   }
 
@@ -35,7 +34,6 @@ const ItemDetail = ({ nombre, img, stock, precio, id }) => {
             </Card.Text>
             <Card.Text>${precio}</Card.Text>
             <ItemCount stock={stock} initial={cantidad} agregarProd={agregarProd}/>
-            {cantidad}
           </Card.Body>
       </Card>
   )

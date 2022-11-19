@@ -39,7 +39,7 @@ function ItemCount({ stock, initial, agregarProd }) {
         </div>
         <div>
           <NavLink to={"/cart"}>
-            <Button onClick={() => agregarProd(value)} variant="primary">
+            <Button onClick={() => agregarProd(value, stock)} variant="primary">
               Agregar al carrito
             </Button>
           </NavLink>{" "}

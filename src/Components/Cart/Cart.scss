@@ -1,14 +1,36 @@
 .carrito{
-    padding: 5rem;
-    margin: 0 25rem;
+    padding: 2rem;
+    margin: 0 auto;
+    width: 40%;
     background-color: #f9f9f9;
     margin-top: 5rem;
-    border-radius: 5rem;
+    margin-bottom: 5rem;
+    border-radius: 1rem;
+    font-family: 'Roboto Flex', sans-serif;
+    .cards{
+        padding: 1rem;
+        margin: 1.5rem;
+        height: 15vh;
+        display: flex;
+        flex-direction: row;
+        border: none;
+    }
     .titulo{
         font-family: 'Lobster', cursive;
-        font-size: 1.5rem;
-        text-align: center;
+        font-size: 1.2rem;
+        width: 30%;
     }
+
+    .img{
+        margin-right: 1rem;
+    }
+
+    .cant-precio{
+        display: flex;
+        flex-direction: column;
+        margin: 1rem;
+    }
+
     .prod{
         font-family: 'Roboto Flex', sans-serif;
         font-size: 1rem;
@@ -16,17 +38,19 @@
         text-align: center;
     }
     .trash{
-        margin-top: 1.4rem;
+        margin: 0 auto;
+        margin-top: 2rem;
         cursor: pointer
     }
     .total{
         font-family: 'Lobster', cursive;
         font-size: 1.5rem;
         text-align: center;
-        margin-top: 10rem;
+        margin-top: 3rem;
     }
     .btn-cart{
         width: 30%;
+        height: 6vh;
         margin: 0 auto;
         padding: 8px 16px;
         margin-top: 1rem;
@@ -40,8 +64,6 @@
         &:hover {
             background-color: rgba(51, 51, 51, 0.815);
             border: none;
-            transform: scale(1.1);
-            transition: 0.3s;
         }
     }
 }
