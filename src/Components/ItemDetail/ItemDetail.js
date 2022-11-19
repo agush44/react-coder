@@ -33,7 +33,7 @@ const ItemDetail = ({ nombre, img, stock, precio, id }) => {
               bulk of the card's content.
             </Card.Text>
             <Card.Text>${precio}</Card.Text>
-            <ItemCount stock={stock} initial={cantidad} agregarProd={agregarProd}/>
+            <ItemCount stock={stock} initial={1} agregarProd={agregarProd}/>
           </Card.Body>
       </Card>
   )

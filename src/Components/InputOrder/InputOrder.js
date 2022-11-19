@@ -1,10 +1,11 @@
-import toast, { Toaster } from 'react-hot-toast';
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { useContext, useState } from "react"
 import { CartContext } from "../../Context/CartContext"
 import './InputOrder.scss'
 import CloseIcon from '@mui/icons-material/Close';
 import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
+import 'animate.css';
 
 function InputOrder({ total, setShowCart }) {
     const { cart, clear } = useContext(CartContext);
@@ -34,8 +35,18 @@ function InputOrder({ total, setShowCart }) {
             const db = getFirestore();
             const ordersCollection = collection(db, "ordersCollection");
             addDoc(ordersCollection, order).then(({ id }) => 
+                Swal.fire({
+                    title: "Orden enviada!",
+                    text: `Nro de orden ${id}`,
+                    showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                    },
+                })
+            ).then(() => 
             navigate("/"),
-                toast.success(`Orden enviada!`),
             )
             clear()   
         }
@@ -43,8 +54,6 @@ function InputOrder({ total, setShowCart }) {
 
   return (
     <div>
-        <div><Toaster/></div>
-        <div><Toaster/></div>
         <div className="global-container">
             <div className="card login-form">
                 <div className='cancel'>

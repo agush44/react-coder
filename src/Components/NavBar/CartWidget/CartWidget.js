@@ -3,7 +3,6 @@ import "./CartWidget.scss";
 import { NavLink } from "react-router-dom";
 
 function CartWidget() {
-  
   return (
     <div>
       <NavLink to={`/cart`}>

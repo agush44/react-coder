@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import { NavLink } from "react-router-dom";
 
 function ItemCount({ stock, initial, agregarProd }) {
-  const [value, setValue] = useState(initial = 1);
+  const [value, setValue] = useState(initial);
 
   function onAdd() {
     if (stock > value) {

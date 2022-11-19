@@ -9,6 +9,12 @@
         margin-bottom: 5rem;
         display: flex;
         margin-left: 8rem;
+        
+        .card-body{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
         a{
             text-decoration: none;
@@ -22,6 +28,7 @@
 
         .card-title {
             font-family: 'Lobster', cursive;
+            font-size: 1.5rem;
         }
 
         .card-text {
