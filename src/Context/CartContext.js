@@ -4,6 +4,7 @@ export const CartContext = createContext();
 
 const CartProvider = ({children}) => {
     const [cart, setCart] = useState([])
+    const [order, isOrder] = useState(false);
 
     const isInCart = (id) => {
         return cart.some((el) => el.id === id)
@@ -37,6 +38,7 @@ const CartProvider = ({children}) => {
             setCart([...cart, item]);
             console.log('Item agregado')  
         }
+        isOrder(true)
     };
 
     const clear = () => {

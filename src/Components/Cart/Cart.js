@@ -6,11 +6,10 @@ import Button from 'react-bootstrap/Button';
 import '../Cart/Cart.scss'
 import DeleteIcon from '@mui/icons-material/Delete';
 import InputOrder from "../InputOrder/InputOrder";
-import Swal from 'sweetalert2'
-;
+import Swal from 'sweetalert2';
 
 function Cart() {
-  const { cart, removeItem } = useContext(CartContext)
+  const { cart, removeItem, order } = useContext(CartContext)
   const [total, setTotal] = useState(0);
   const [showCart, setShowCart] = useState(true);
 
@@ -20,13 +19,15 @@ function Cart() {
   }, [cart, total])
 
   function Alert(){
-    Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      showConfirmButton: false,
-      text: 'No hay productos en el carrito',
-      footer: '<a href="/">Volver al inicio</a>'
-    })
+    if(order === false){
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        showConfirmButton: false,
+        text: 'No hay productos en el carrito',
+        footer: '<a href="/">Volver al inicio</a>'
+      })
+    }
   }
 
 
@@ -54,7 +55,7 @@ function Cart() {
               <Container fluid="md">
                   <div className="total">Total: ${total}</div>
                   <Button className="btn-cart" onClick={()=>{
-                    setShowCart(false)
+                    setShowCart(false);
               }}>Enviar orden</Button>
               </Container>
           </div>
